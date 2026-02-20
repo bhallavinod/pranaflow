@@ -1,0 +1,119 @@
+/* ROOT */
+.live-root {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: linear-gradient(#eaf6f6, #f0faf4);
+  font-family: system-ui, sans-serif;
+}
+
+/* LEFT */
+.live-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.human {
+  width: 80%;
+  max-width: 260px;
+  border-radius: 14px;
+  transition: transform linear;
+  transition-duration: 6s;
+}
+
+/* Animated fallback (guaranteed visible) */
+.human-fallback {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 6px solid rgba(0,120,160,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #456;
+  font-size: 0.9rem;
+}
+
+.human-fallback.animated {
+  animation: pulse 7s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(0.95); }
+}
+
+/* CENTER */
+.live-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-wrapper {
+  position: relative;
+  width: 260px;
+  height: 260px;
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 14px solid rgba(0,120,160,0.25);
+  transition: transform linear;
+}
+
+.circle.inhale {
+  transform: scale(1.15);
+  transition-duration: 7s;
+}
+.circle.exhale {
+  transform: scale(0.85);
+  transition-duration: 16s;
+}
+.circle.pause {
+  transform: scale(1);
+  transition-duration: 1s;
+}
+
+.circle-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.phase {
+  font-size: 0.85rem;
+  color: #567;
+}
+.timer {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0b4b6b;
+}
+.reps,
+.pause-text {
+  font-size: 0.85rem;
+  color: #567;
+}
+
+/* RIGHT */
+.live-right {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.method {
+  color: #555;
+  margin-bottom: 12px;
+}
